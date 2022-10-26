@@ -1,0 +1,142 @@
+﻿@{
+    var kd = ViewBag.KriptoData;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Blog</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="shortcut icon" href="~/content/images/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="~/content/images/apple-touch-icon.png">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href="~/content/css/bootstrap.css" rel="stylesheet">
+    <link href="~/content/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/content/css/style.css" rel="stylesheet">
+    <link href="~/content/css/responsive.css" rel="stylesheet">
+    <link href="~/content/css/colors.css" rel="stylesheet">
+    <link href="~/content/css/version/tech.css" rel="stylesheet">
+    <link href="~/content/css/blog.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="wrapper">
+        <header class="tech-header header">
+            <div class="container-fluid">
+                <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <a class="navbar-brand" href="/Home/Index">Blog</a>
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Home/Index">Anasayfa</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Home/Hakkimizda">Hakkımızda</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Home/iletisim">İletisim</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        @RenderBody()
+
+        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+            <div class="sidebar">
+                <div class="widget">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Sembol</th>
+                                <th scope="col">İsim</th>
+                                <th scope="col">FiyatUsd</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (int i = 0; i < 10; i++)
+                            {
+                                <tr>
+                                    <td>@kd[i]["symbol"]</td>
+                                    <td>@kd[i]["name"]</td>
+                                    <td>@kd[i]["priceUsd"]</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="widget">
+                    <div class="banner-spot clearfix">
+                        <div class="banner-img">
+                            <img src="~/content/upload/banner_07.jpg" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+                    <div class="widget">
+                        <h2 class="widget-title">Takip Et</h2>
+                        <div class="row text-center">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                <a href="@ViewBag.Facebook">
+                                    <i class="fa fa-facebook" style="width:50px; height:50px; background-color:#3b5998; padding:10px; color: #ffffff !important;"></i>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                <a href="@ViewBag.Instagram">
+                                    <i class="fa fa-instagram" style="width:50px; height:50px; background-color:#EA4335; padding:10px; color: #ffffff !important;"></i>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                <a href="@ViewBag.Twitter">
+                                    <i class="fa fa-twitter" style="width:50px; height:50px; background-color:#1da1f2; padding:10px; color: #ffffff !important;"></i>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                <a href="@ViewBag.YouTube">
+                                    <i class="fa fa-youtube" style="width:50px; height:50px; background-color:#CD201F; padding:10px; color: #ffffff !important;"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                <div class="widget">
+                    <div class="banner-spot clearfix">
+                        <div class="banner-img">
+                            <img src="~/content/upload/banner_03.jpg" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="copyright">Copyright &copy; 2019 Blog.</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="dmtop">Yukarı Çık</div>
+    </div>
+    <script src="~/content/js/jquery.min.js"></script>
+    <script src="~/content/js/tether.min.js"></script>
+    <script src="~/content/js/bootstrap.min.js"></script>
+    <script src="~/content/js/custom.js"></script>
+    <script src="~/Content/ckeditor/ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/16.0.0/classic/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('mail');
+    </script>
+</body>
+</html>

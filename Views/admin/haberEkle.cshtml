@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "haberEkle";
+    Layout = "~/Views/layout/adminlayout.cshtml";
+}
+<div class="col-6 offset-3">
+    <div id="formContent">
+        <div class="fadeIn first">
+            <h1>Haber Ekle</h1>
+        </div>
+        <form id="haberEkle" name="haberEkle" method="post" action="/admin/ekle" enctype = "multipart/form-data">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Haber Başlığı</label>
+                <input type="text" class="form-control" id="haberAdi" name="haberAdi">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Haber İçeriği</label>
+                <textarea name="haberIcerigi" id="haberIcerigi"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Haber Resmi</label><br>
+                <input type="file" class="" id="haberResmi" name="haberResmi">
+
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Ekle" class="btn btn-primary btn-block">
+            </div>
+        </form>
+   
+    </div>
+</div>

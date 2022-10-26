@@ -1,0 +1,120 @@
+﻿@using System.Data;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/layout/layout.cshtml";
+    DataTable haber = ViewBag.Haber as DataTable;
+    int index = ViewBag.index;
+    int lastIndex = ViewBag.lastIndex;
+    var top3 = ViewBag.top3 as DataTable;
+}
+<section class="section first-section">
+    <div class="container-fluid">
+        <div class="masonry-blog clearfix">
+            <div class="first-slot">
+                <div class="masonry-box post-media">
+                    <img src="@top3.Rows[0]["haberResmi"]" width="788" height="443">
+                    <div class="shadoweffect">
+                        <div class="shadow-desc">
+                            <div class="blog-meta">
+                                <h4><a href="/Home/habericerik/@top3.Rows[0]["id"]" title="">@top3.Rows[0]["haberAdi"]</a></h4>
+                                <small><a href="/Home/habericerik/@top3.Rows[0]["id"]" title="">@top3.Rows[0]["haberTarihi"]</a></small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="second-slot">
+                <div class="masonry-box post-media">
+                    <img src="@top3.Rows[1]["haberResmi"]" width="394" height="449">
+                    <div class="shadoweffect">
+                        <div class="shadow-desc">
+                            <div class="blog-meta">
+                                <h4><a href="/Home/habericerik/@top3.Rows[1]["id"]" title="">@top3.Rows[1]["haberAdi"]</a></h4>
+                                <small><a href="/Home/habericerik/@top3.Rows[1]["id"]" title="">@top3.Rows[1]["haberTarihi"]</a></small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="last-slot">
+                <div class="masonry-box post-media">
+                    <img src="@top3.Rows[2]["haberResmi"]" width="394" height="449">
+                    <div class="shadoweffect">
+                        <div class="shadow-desc">
+                            <div class="blog-meta">
+                                <h4><a href="/Home/habericerik/@top3.Rows[2]["id"]" title="">@top3.Rows[2]["haberAdi"]</a></h4>
+                                <small><a href="/Home/habericerik/@top3.Rows[2]["id"]" title="">@top3.Rows[2]["haberTarihi"]</a></small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                <div class="page-wrapper">
+                    <div class="blog-top clearfix">
+                        <h4 class="pull-left">Haberler <i class="fa fa-rss"></i></h4>
+                    </div>
+                    @for (int i = 0; i < haber.Rows.Count; i++)
+                    {
+                        <div class="blog-list clearfix">
+                            <div class="blog-box row">
+                                <div class="col-md-4">
+                                    <div class="post-media">
+                                        <a href="/Home/habericerik/@haber.Rows[i]["id"]" title="">
+                                            <img src="@haber.Rows[i]["haberResmi"]" alt="" class="img-fluid">
+                                            <div class="hovereffect"></div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="blog-meta big-meta col-md-8">
+                                    <h4><a href="/Home/habericerik/@haber.Rows[i]["id"]" title="">@haber.Rows[i]["haberAdi"]</a></h4>
+                                    <small><a>@haber.Rows[i]["haberTarihi"]</a></small>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="invis">
+                        if ((i + 1) % 7 == 0)
+                        {
+                            <div class="row">
+                                <div class="col-lg-10 offset-lg-1">
+                                    <div class="banner-spot clearfix">
+                                        <div class="banner-img">
+                                            <img src="/content/upload/banner_02.jpg" alt="" class="img-fluid">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="invis">
+                        }
+                    }
+                </div>
+                <hr class="invis">
+                <div class="row">
+                    <div class="col-md-12">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination justify-content-start">
+                                @{
+                                    if (index != 1)
+                                    {
+                                        <li class="page-item"><a class="page-link" href="/home/Index?page=@(index - 1)">Önceki</a></li>
+                                    }
+                                    for (int i = (index == 1 ? index : index == 2 ? 1 : (index + 2) > lastIndex ? ((index - 2) - ((index + 2) - lastIndex)) : (index - 2)); i <= (index == lastIndex ? lastIndex : index == (lastIndex - 1) ? lastIndex : (index - 2) < 1 ? (index + 2) + (Math.Abs(index - 2) + 1) : (index + 2)); i++)
+                                    {
+                                        <li class="@(i == index ? "disabled" : "page-item")"><a class="  @(i == index ? "btn btn-primary ml-1 disabled" : "page-link")" href="/home/Index?page=@i">@i</a></li>
+                                    }
+                                    if (index != lastIndex)
+                                    {
+                                        <li class="page-item"><a class="page-link" href="/home/Index?page=@(index + 1)">Sonraki</a></li>
+                                    }
+                                }
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>

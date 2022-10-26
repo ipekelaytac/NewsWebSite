@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "habericerik";
+    Layout = "~/Views/layout/layout.cshtml";
+}
+    <section class="section">
+        <div class="container">
+            <div class="row">
+ 
+                <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                    <h1>@ViewBag.HaberBaslik</h1><br>
+                    <p><img src="@ViewBag.HaberResim"  width="100%"></p><br>
+                     @Html.Raw(ViewBag.HaberIcerik)
+                </div>
+                

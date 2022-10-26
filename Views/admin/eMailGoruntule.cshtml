@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "eMailGoruntule";
+    Layout = "~/Views/layout/adminlayout.cshtml";
+}
+    <div class="container-fluid">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="">Veri Tablosu</a>
+            </li>
+        </ol>
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fas fa-table"></i>
+                E-Mail
+            </div>
+            <form>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="table" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th style="width:15%; text-align:center;">Ad & Soyad</th>
+                                    <th style="width:15%; text-align:center;">E-Posta</th>
+                                    <th style="width:15%; text-align:center;">Telefon</th>
+                                    <th style="width:55%; text-align:center;">Mail</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th style="width:15%; text-align:center;">Ad & Soyad</th>
+                                    <th style="width:15%; text-align:center;">E-Posta</th>
+                                    <th style="width:15%; text-align:center;">Telefon</th>
+                                    <th style="width:55%; text-align:center;">Mail</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                <tr>
+                                    <td align="center">@ViewBag.adSoyad</td>
+                                    <td align="center">@ViewBag.ePosta</td>
+                                    <td align="center">@ViewBag.telefon</td>
+                                    <td align="center">@Html.Raw(ViewBag.mail)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
